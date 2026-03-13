@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  image?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  title,
+  subtitle,
+  image = '/images/device-hero.svg',
+  primaryCtaLabel = 'Llamar ahora',
+  primaryCtaHref = 'tel:+34636573031',
+  secondaryCtaLabel = 'Pedir presupuesto por WhatsApp',
+  secondaryCtaHref = 'https://api.whatsapp.com/send?phone=34636573031&text=Presupuesto',
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-hero-grid"></div>
+  <div class="absolute left-1/2 top-16 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-blue-400/20 blur-3xl"></div>
+  <div class="absolute right-0 top-24 -z-10 h-52 w-52 rounded-full bg-orange-300/20 blur-3xl"></div>
+  <div class="container-shell section-space">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="max-w-2xl" data-reveal="left">
+        <div class="inline-flex rounded-full border border-blue-100 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-phonetec shadow-sm">
+          Reparación técnica con garantía
+        </div>
+        <h1 class="mt-8 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">{title}</h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">{subtitle}</p>
+
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel}</a>
+          <a href={secondaryCtaHref} target="_blank" rel="noopener noreferrer" class="btn-secondary">{secondaryCtaLabel}</a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-gray-600">
+          <div class="rounded-full bg-white px-4 py-2 shadow-sm">3 meses de garantía</div>
+          <div class="rounded-full bg-white px-4 py-2 shadow-sm">Repuestos originales</div>
+          <div class="rounded-full bg-white px-4 py-2 shadow-sm">Samsung, Apple, Xiaomi y más</div>
+        </div>
+      </div>
+
+      <div class="relative" data-reveal="right" data-stagger="1">
+        <div class="glass-panel aurora-panel relative overflow-hidden p-4 sm:p-6">
+          <div class="absolute right-6 top-6 rounded-full bg-orange-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Servicio express
+          </div>
+          <img src={image} alt="Ilustración de un dispositivo móvil" class="mx-auto w-full max-w-lg animate-float" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

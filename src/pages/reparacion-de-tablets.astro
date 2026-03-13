@@ -1,0 +1,45 @@
+---
+import Layout from '../components/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<Layout
+  title="Reparación de tablets en Alcalá de Henares | PHONETEC"
+  description="Servicio técnico de tablets en Alcalá de Henares. Pantallas, baterías, conectores y software para iPad, Samsung Galaxy Tab, Xiaomi y más."
+>
+  <Hero
+    title="Reparación de Tablets en Alcalá de Henares"
+    subtitle="Soluciones profesionales para tablets con pantalla rota, batería degradada, conector defectuoso o fallos de sistema, siempre con atención cercana y garantía."
+  />
+
+  <section class="section-space">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+      <div>
+        <h2 class="section-title">Recupera tu tablet para trabajar, estudiar o disfrutar de contenido</h2>
+        <p class="section-copy">
+          Las tablets se han convertido en una herramienta diaria para ocio, teletrabajo, estudio y gestión comercial. En PHONETEC realizamos reparaciones enfocadas a que vuelvan a funcionar con estabilidad, buena autonomía y conectividad fiable.
+        </p>
+        <p class="section-copy">
+          Atendemos modelos de Apple, Samsung, Xiaomi, Huawei y otras marcas, analizando cada caso para ofrecer una reparación adaptada al estado del equipo y al uso que le das.
+        </p>
+      </div>
+
+      <div class="rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-slate-900/15">
+        <h3 class="text-2xl font-bold">Qué reparamos en tablets</h3>
+        <ul class="mt-6 space-y-4 text-base text-slate-300">
+          <li>Cambio de pantalla y digitalizador</li>
+          <li>Sustitución de batería y fallos de carga</li>
+          <li>Conector USB o Lightning dañado</li>
+          <li>Errores de software y restauración del sistema</li>
+          <li>Problemas de sonido, cámara o conectividad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Tu tablet necesita reparación?"
+    text="Cuéntanos el modelo y la avería para proponerte la mejor intervención técnica y darte presupuesto por teléfono o WhatsApp."
+  />
+</Layout>

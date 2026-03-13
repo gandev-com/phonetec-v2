@@ -1,0 +1,29 @@
+{
+  "name": "phonetec-v2",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.1 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.7",
+    "@astrojs/node": "^10.0.1",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/forms": "^0.5.11",
+    "astro": "^6.0.4",
+    "nodemailer": "^6.10.1"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
+  }
+}

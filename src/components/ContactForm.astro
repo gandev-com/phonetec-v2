@@ -1,0 +1,102 @@
+<section id="contact" class="rounded-[2rem] bg-slate-950 px-6 py-10 text-white shadow-2xl shadow-slate-900/20 sm:px-10 sm:py-12">
+  <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">Contacto directo</p>
+      <h2 class="mt-4 text-3xl font-extrabold sm:text-4xl">Contacta con nosotros</h2>
+      <p class="mt-4 max-w-md text-base leading-8 text-slate-300">
+        Cuéntanos qué le ocurre a tu dispositivo y te responderemos con la mejor opción de reparación para móviles, tablets, portátiles y ordenadores.
+      </p>
+      <div class="mt-8 space-y-3 text-sm text-slate-300">
+        <p><strong class="text-white">Teléfono:</strong> <a href="tel:+34636573031" class="hover:text-white">+34 636 573 031</a></p>
+        <p><strong class="text-white">Email:</strong> <a href="mailto:phontecnico@gmail.com" class="hover:text-white">phontecnico@gmail.com</a></p>
+        <p><strong class="text-white">Ubicación:</strong> Alcalá de Henares, Madrid</p>
+      </div>
+    </div>
+
+    <form class="grid gap-5" data-contact-form>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <label class="block">
+          <span class="mb-2 block text-sm font-medium text-slate-200">Nombre</span>
+          <input name="name" type="text" required maxlength="80" class="w-full rounded-2xl border-slate-700 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400" placeholder="Tu nombre" />
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-medium text-slate-200">Email</span>
+          <input name="email" type="email" required maxlength="120" class="w-full rounded-2xl border-slate-700 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400" placeholder="tu@email.com" />
+        </label>
+      </div>
+
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-slate-200">Servicio</span>
+        <select name="service" class="w-full rounded-2xl border-slate-700 bg-slate-900/70 px-4 py-3 text-white focus:border-blue-400 focus:ring-blue-400">
+          <option value="Reparación de móviles">Reparación de móviles</option>
+          <option value="Reparación de tablets">Reparación de tablets</option>
+          <option value="Reparación de portátiles y PC">Reparación de portátiles y PC</option>
+          <option value="Desarrollo web con Gandev">Desarrollo web con Gandev</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </label>
+
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-slate-200">Asunto</span>
+        <input name="subject" type="text" required maxlength="120" class="w-full rounded-2xl border-slate-700 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400" placeholder="¿Qué necesitas reparar?" />
+      </label>
+
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-slate-200">Mensaje</span>
+        <textarea name="message" required rows="5" maxlength="1500" class="w-full rounded-3xl border-slate-700 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400" placeholder="Describe la avería o la reparación que necesitas"></textarea>
+      </label>
+
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <button type="submit" class="btn-primary border-0" data-submit-button>Enviar mensaje</button>
+        <p class="text-sm text-slate-300" data-form-status aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script is:inline>
+  const form = document.querySelector('[data-contact-form]');
+  const status = document.querySelector('[data-form-status]');
+  const submitButton = document.querySelector('[data-submit-button]');
+
+  if (form instanceof HTMLFormElement && status && submitButton instanceof HTMLButtonElement) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+      status.textContent = 'Enviando tu consulta...';
+      status.className = 'text-sm text-blue-300';
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'No se ha podido enviar el mensaje.');
+        }
+
+        form.reset();
+        status.textContent = result.message || 'Mensaje enviado correctamente.';
+        status.className = 'text-sm text-emerald-300';
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : 'Ha ocurrido un error inesperado.';
+        status.className = 'text-sm text-rose-300';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar mensaje';
+      }
+    });
+  }
+</script>

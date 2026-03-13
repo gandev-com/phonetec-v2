@@ -1,0 +1,156 @@
+---
+const advisorOptions = [
+  {
+    id: 'moviles',
+    label: 'Móviles',
+    headline: 'Reparación rápida para móviles de uso diario',
+    description: 'Pantallas, baterías, conectores, software o placa base con diagnóstico claro y presupuesto directo por WhatsApp o teléfono.',
+    chips: 'Pantallas|Baterías|Carga|Placa base',
+    primaryLabel: 'Ver servicio de móviles',
+    primaryHref: '/reparacion-de-moviles',
+    secondaryLabel: 'Pedir presupuesto',
+    secondaryHref: 'https://api.whatsapp.com/send?phone=34636573031&text=Presupuesto%20m%C3%B3viles',
+  },
+  {
+    id: 'tablets',
+    label: 'Tablets',
+    headline: 'Soporte técnico para tablets personales y profesionales',
+    description: 'Recuperamos pantallas, autonomía, conectores y estabilidad de sistema para iPad, Galaxy Tab y otros modelos habituales.',
+    chips: 'Pantalla|Batería|Conector|Software',
+    primaryLabel: 'Ver servicio de tablets',
+    primaryHref: '/reparacion-de-tablets',
+    secondaryLabel: 'Consultar reparación',
+    secondaryHref: 'https://api.whatsapp.com/send?phone=34636573031&text=Presupuesto%20tablets',
+  },
+  {
+    id: 'pc',
+    label: 'Portátiles y PC',
+    headline: 'Reparación y puesta a punto para equipos que no pueden fallar',
+    description: 'Pantallas, teclados, baterías, virus, formateo, SSD y problemas de hardware para portátiles y ordenadores.',
+    chips: 'Teclado|Virus|SSD|Formateo',
+    primaryLabel: 'Ver servicio de PC',
+    primaryHref: '/reparacion-de-portatiles-y-pc',
+    secondaryLabel: 'Hablar con soporte',
+    secondaryHref: 'tel:+34636573031',
+  },
+  {
+    id: 'web',
+    label: 'Desarrollo web',
+    headline: 'Webs modernas para negocios con Gandev',
+    description: 'Si además necesitas una presencia digital profesional, Gandev desarrolla webs corporativas, landings y soluciones a medida orientadas a conversión.',
+    chips: 'Web corporativa|SEO técnico|Landing pages|Mantenimiento',
+    primaryLabel: 'Visitar Gandev.es',
+    primaryHref: 'https://gandev.es',
+    secondaryLabel: 'Solicitar propuesta',
+    secondaryHref: '/#contact',
+  },
+];
+
+const activeOption = advisorOptions[0];
+---
+
+<section class="section-space bg-gray-50">
+  <div class="container-shell">
+    <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <div data-reveal="left">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Asistente rápido</p>
+        <h2 class="section-title mt-4">Elige el servicio y te guiamos al siguiente paso</h2>
+        <p class="section-copy">Hemos añadido un selector rápido para que cada visitante llegue antes al canal adecuado, ya sea reparación técnica o desarrollo web con Gandev.</p>
+      </div>
+
+      <div class="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-xl shadow-slate-200/60" data-reveal="right">
+        <div class="flex flex-wrap gap-3">
+          {advisorOptions.map((option, index) => (
+            <button
+              type="button"
+              class:list={[
+                'rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300',
+                index === 0 ? 'bg-phonetec text-white shadow-lg shadow-blue-600/20' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+              ]}
+              data-advisor-button
+              data-id={option.id}
+              data-headline={option.headline}
+              data-description={option.description}
+              data-chips={option.chips}
+              data-primary-label={option.primaryLabel}
+              data-primary-href={option.primaryHref}
+              data-secondary-label={option.secondaryLabel}
+              data-secondary-href={option.secondaryHref}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+
+        <div class="mt-6 rounded-[1.5rem] bg-slate-950 p-7 text-white">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300" data-advisor-kicker>Servicio seleccionado</p>
+          <h3 class="mt-4 text-2xl font-extrabold sm:text-3xl" data-advisor-headline>{activeOption.headline}</h3>
+          <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300" data-advisor-description>{activeOption.description}</p>
+
+          <div class="mt-6 flex flex-wrap gap-3" data-advisor-chips>
+            {activeOption.chips.split('|').map((chip) => (
+              <span class="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-200">{chip}</span>
+            ))}
+          </div>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={activeOption.primaryHref} class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-phonetec transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50" data-advisor-primary>{activeOption.primaryLabel}</a>
+            <a href={activeOption.secondaryHref} class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10" data-advisor-secondary>{activeOption.secondaryLabel}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const initAdvisor = () => {
+    const buttons = Array.from(document.querySelectorAll('[data-advisor-button]'));
+    const headline = document.querySelector('[data-advisor-headline]');
+    const description = document.querySelector('[data-advisor-description]');
+    const chipsContainer = document.querySelector('[data-advisor-chips]');
+    const primaryLink = document.querySelector('[data-advisor-primary]');
+    const secondaryLink = document.querySelector('[data-advisor-secondary]');
+
+    if (!buttons.length || !headline || !description || !chipsContainer || !primaryLink || !secondaryLink) {
+      return;
+    }
+
+    const setActive = (button) => {
+      buttons.forEach((item) => {
+        item.classList.remove('bg-phonetec', 'text-white', 'shadow-lg', 'shadow-blue-600/20');
+        item.classList.add('bg-gray-100', 'text-gray-700');
+      });
+
+      button.classList.add('bg-phonetec', 'text-white', 'shadow-lg', 'shadow-blue-600/20');
+      button.classList.remove('bg-gray-100', 'text-gray-700');
+
+      headline.textContent = button.dataset.headline || '';
+      description.textContent = button.dataset.description || '';
+      primaryLink.textContent = button.dataset.primaryLabel || 'Ver servicio';
+      primaryLink.setAttribute('href', button.dataset.primaryHref || '/');
+      secondaryLink.textContent = button.dataset.secondaryLabel || 'Contactar';
+      secondaryLink.setAttribute('href', button.dataset.secondaryHref || '/#contact');
+
+      chipsContainer.innerHTML = '';
+      (button.dataset.chips || '').split('|').filter(Boolean).forEach((chip) => {
+        const tag = document.createElement('span');
+        tag.className = 'rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-200';
+        tag.textContent = chip;
+        chipsContainer.appendChild(tag);
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => setActive(button));
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAdvisor, { once: true });
+  } else {
+    initAdvisor();
+  }
+
+  document.addEventListener('astro:page-load', initAdvisor);
+</script>

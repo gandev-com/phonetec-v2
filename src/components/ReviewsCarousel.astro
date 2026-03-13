@@ -1,0 +1,52 @@
+---
+const reviews = [
+  {
+    author: 'Stefania Zahan',
+    text: 'Un trabajo excelente, siempre que tengo un problema con mi móvil recurro a PHONETEC porque responden rápido y con mucha profesionalidad.',
+  },
+  {
+    author: 'Samuel Ortega',
+    text: 'Excelente servicio. Gran profesionalidad, trato muy amable y claridad al explicar el problema y la reparación necesaria.',
+  },
+  {
+    author: 'Cliente de Alcalá de Henares',
+    text: 'Si tienes cualquier tipo de problema con el móvil, tablet u ordenador, aquí te ayudan de verdad. Muy recomendables por calidad y garantía.',
+  },
+];
+---
+
+<div class="relative">
+  <div class="review-mask overflow-hidden">
+    <div class="flex snap-x gap-6 overflow-x-auto pb-4" data-reviews-track>
+      {reviews.map((review) => (
+        <article class="min-w-[86%] snap-center rounded-3xl border border-gray-100 bg-white p-8 shadow-md shadow-slate-200/60 sm:min-w-[420px]">
+          <div class="text-lg text-amber-400">★★★★★</div>
+          <p class="mt-4 text-base leading-8 text-gray-600">“{review.text}”</p>
+          <p class="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-gray-900">{review.author}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+  <div class="mt-6 flex gap-3">
+    <button type="button" class="btn-secondary px-4 py-2.5" data-reviews-prev>Anterior</button>
+    <button type="button" class="btn-secondary px-4 py-2.5" data-reviews-next>Siguiente</button>
+  </div>
+</div>
+
+<script is:inline>
+  const track = document.querySelector('[data-reviews-track]');
+  const prevButton = document.querySelector('[data-reviews-prev]');
+  const nextButton = document.querySelector('[data-reviews-next]');
+
+  if (track && prevButton && nextButton) {
+    const scrollAmount = () => Math.min(track.clientWidth * 0.9, 460);
+
+    prevButton.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+
+    nextButton.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+  }
+</script>

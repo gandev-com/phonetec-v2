@@ -1,0 +1,85 @@
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Inicio' },
+  { href: '/reparacion-de-moviles', label: 'Móviles' },
+  { href: '/reparacion-de-tablets', label: 'Tablets' },
+  { href: '/reparacion-de-portatiles-y-pc', label: 'Portátiles y PC' },
+  { href: '/#contact', label: 'Contacto' },
+];
+
+const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathname === '/' : pathname.startsWith(href));
+---
+
+<header class="sticky top-0 z-40 border-b border-white/70 bg-white/85 backdrop-blur-xl">
+  <div class="container-shell">
+    <div class="flex items-center justify-between py-4">
+      <a href="/" class="flex items-center gap-3">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-phonetec text-lg font-extrabold text-white shadow-lg shadow-blue-600/25">P</span>
+        <div>
+          <div class="text-lg font-extrabold tracking-tight text-ink">PHONETEC</div>
+          <div class="text-xs font-medium uppercase tracking-[0.2em] text-gray-500">Alcalá de Henares</div>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-2 lg:flex">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200',
+              isActive(item.href) ? 'bg-blue-50 text-phonetec' : 'text-gray-600 hover:text-phonetec',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a href="tel:+34636573031" class="btn-primary ml-2 px-5 py-2.5">Llamar ahora</a>
+      </nav>
+
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200 text-gray-700 lg:hidden"
+        data-menu-button
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Abrir menú"
+      >
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-nav" class="hidden border-t border-gray-100 py-4 lg:hidden" data-mobile-nav>
+      <nav class="flex flex-col gap-2">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-2xl px-4 py-3 text-sm font-semibold transition-colors duration-200',
+              isActive(item.href) ? 'bg-blue-50 text-phonetec' : 'text-gray-600 hover:bg-gray-50 hover:text-phonetec',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a href="tel:+34636573031" class="btn-primary mt-2">Llamar ahora</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const menuButton = document.querySelector('[data-menu-button]');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+
+  if (menuButton && mobileNav) {
+    menuButton.addEventListener('click', () => {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isExpanded));
+      mobileNav.classList.toggle('hidden', isExpanded);
+    });
+  }
+</script>

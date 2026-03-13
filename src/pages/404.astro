@@ -1,0 +1,20 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout
+  title="Página no encontrada | PHONETEC"
+  description="La página que buscas no existe o ha cambiado de ubicación. Vuelve al inicio de PHONETEC."
+  noIndex={true}
+>
+  <section class="section-space">
+    <div class="container-shell">
+      <div class="mx-auto max-w-3xl rounded-[2rem] bg-white p-10 text-center shadow-2xl shadow-slate-200/60">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Error 404</p>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">No hemos encontrado esa página</h1>
+        <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">Puede que el enlace esté desactualizado o que la página haya cambiado. Desde aquí puedes volver a la página principal y seguir navegando.</p>
+        <a href="/" class="btn-primary mt-8">Ir al inicio</a>
+      </div>
+    </div>
+  </section>
+</Layout>

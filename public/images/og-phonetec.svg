@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <circle cx="1022" cy="138" r="134" fill="#2563EB" fill-opacity="0.35"/>
+  <circle cx="150" cy="520" r="180" fill="#F97316" fill-opacity="0.25"/>
+  <rect x="80" y="84" width="1040" height="462" rx="40" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.15"/>
+  <text x="120" y="250" fill="white" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">PHONETEC</text>
+  <text x="120" y="340" fill="#BFDBFE" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600">Reparación de móviles, tablets y portátiles</text>
+  <text x="120" y="408" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="30">Alcalá de Henares, Madrid • Garantía de 3 meses • Repuestos originales</text>
+</svg>

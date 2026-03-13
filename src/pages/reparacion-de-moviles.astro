@@ -1,0 +1,57 @@
+---
+import Layout from '../components/Layout.astro';
+import Hero from '../components/Hero.astro';
+import BrandLogos from '../components/BrandLogos.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<Layout
+  title="Reparación de móviles en Alcalá de Henares | PHONETEC"
+  description="Reparación de móviles en Alcalá de Henares con PHONETEC. Pantallas, baterías, software, placa base y daños por agua con garantía de 3 meses."
+>
+  <Hero
+    title="Reparación de Móviles en Alcalá de Henares"
+    subtitle="Diagnóstico preciso y reparación profesional para smartphones Samsung, Xiaomi, Apple, Huawei, BQ y otras marcas, con repuestos originales y garantía de 3 meses."
+  />
+
+  <section class="section-space">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div>
+        <h2 class="section-title">Servicio especializado para móviles de uso diario y averías complejas</h2>
+        <p class="section-copy">
+          Reparamos móviles con problemas de pantalla, batería, conector de carga, cámara, software o placa base. En PHONETEC tratamos tanto incidencias habituales como averías complejas que requieren una intervención técnica más profunda.
+        </p>
+        <p class="section-copy">
+          Nuestro objetivo es que recuperes tu teléfono con rapidez, explicando el problema y la solución antes de empezar. Trabajamos desde Alcalá de Henares para clientes de la zona que necesitan confianza, cercanía y resultados duraderos.
+        </p>
+      </div>
+
+      <div class="glass-panel p-8">
+        <h3 class="text-2xl font-bold text-gray-900">Servicios de reparación móvil</h3>
+        <ul class="mt-6 space-y-4 text-base text-gray-600">
+          <li>Pantallas rotas, LCD, OLED y táctiles dañados</li>
+          <li>Cambio de batería y problemas de autonomía</li>
+          <li>Errores de software, reinicios y bloqueos</li>
+          <li>Conectores de carga, altavoces y micrófonos</li>
+          <li>Reparación en placa y recuperación de datos</li>
+          <li>Daños por humedad, golpes o sobrecalentamiento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-gray-50">
+    <div class="container-shell">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Marcas compatibles</p>
+      <h2 class="section-title mt-4">Reparamos móviles de las marcas más demandadas</h2>
+      <div class="mt-10">
+        <BrandLogos />
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Solicita presupuesto para tu móvil"
+    text="Puedes llamarnos o escribirnos por WhatsApp para valorar la reparación y darte una orientación rápida desde Alcalá de Henares."
+  />
+</Layout>

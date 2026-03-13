@@ -1,0 +1,85 @@
+---
+const stats = [
+  { value: 3, suffix: 'm', label: 'meses de garantía' },
+  { value: 8, suffix: '+', label: 'marcas habituales reparadas' },
+  { value: 24, suffix: 'h', label: 'respuesta ágil en consultas' },
+  { value: 100, suffix: '%', label: 'foco en calidad y repuestos fiables' },
+];
+---
+
+<section class="section-space pt-0">
+  <div class="container-shell">
+    <div class="grid gap-4 rounded-[2rem] border border-blue-100 bg-white/90 p-6 shadow-lg shadow-blue-100/50 sm:grid-cols-2 xl:grid-cols-4" data-reveal>
+      {stats.map((stat, index) => (
+        <div class="rounded-3xl bg-gradient-to-br from-blue-50 to-white p-6" data-reveal data-stagger={String(index + 1)}>
+          <div class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+            <span data-counter data-target={String(stat.value)}>0</span>{stat.suffix}
+          </div>
+          <p class="mt-3 text-sm font-medium uppercase tracking-[0.18em] text-gray-500">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const initCounters = () => {
+    const counters = Array.from(document.querySelectorAll('[data-counter]'));
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const animateCounter = (element) => {
+      if (element.dataset.done === 'true') {
+        return;
+      }
+
+      const target = Number(element.dataset.target || '0');
+      const duration = 1200;
+      const start = performance.now();
+
+      const frame = (time) => {
+        const progress = Math.min((time - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = String(Math.round(target * eased));
+
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          element.textContent = String(target);
+          element.dataset.done = 'true';
+        }
+      };
+
+      requestAnimationFrame(frame);
+    };
+
+    if (prefersReducedMotion) {
+      counters.forEach((counter) => {
+        counter.textContent = String(Number(counter.dataset.target || '0'));
+        counter.dataset.done = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.7 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCounters, { once: true });
+  } else {
+    initCounters();
+  }
+
+  document.addEventListener('astro:page-load', initCounters);
+</script>

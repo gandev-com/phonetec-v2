@@ -1,0 +1,46 @@
+---
+import Layout from '../components/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<Layout
+  title="Reparación de ordenadores y portátiles en Alcalá de Henares | PHONETEC"
+  description="Reparación de ordenadores y portátiles en Alcalá de Henares: pantallas, teclados, baterías, placa base, eliminación de virus y formateo profesional."
+>
+  <Hero
+    title="Reparación de Ordenadores y Portátiles en Alcalá de Henares"
+    subtitle="Mantenimiento y reparación de equipos informáticos para particulares y profesionales: fallos de hardware, software, virus, lentitud y averías críticas."
+  />
+
+  <section class="section-space">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div>
+        <h2 class="section-title">Soporte técnico para equipos que no pueden pararse</h2>
+        <p class="section-copy">
+          Reparamos portátiles y ordenadores de sobremesa con problemas de pantalla, teclado, batería, placa base, disco duro, rendimiento, virus o sistema operativo. Ya sea un equipo personal o una herramienta de trabajo, buscamos una solución estable y duradera.
+        </p>
+        <p class="section-copy">
+          También realizamos formateos, optimización, migración de datos y mantenimiento preventivo para alargar la vida útil del equipo y reducir incidencias futuras.
+        </p>
+      </div>
+
+      <div class="glass-panel p-8">
+        <h3 class="text-2xl font-bold text-gray-900">Servicios habituales en PC y portátiles</h3>
+        <ul class="mt-6 space-y-4 text-base text-gray-600">
+          <li>Pantallas de portátil, bisagras y carcasas</li>
+          <li>Teclados, touchpad y conectores internos</li>
+          <li>Baterías, alimentación y sobrecalentamiento</li>
+          <li>Placa base, memoria, SSD y almacenamiento</li>
+          <li>Eliminación de virus y malware</li>
+          <li>Formateo, reinstalación y optimización del sistema</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Recupera el rendimiento de tu ordenador"
+    text="Llámanos o escríbenos por WhatsApp para revisar tu portátil o PC y proponerte una reparación adaptada a la avería y al uso del equipo."
+  />
+</Layout>
