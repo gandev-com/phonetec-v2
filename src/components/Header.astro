@@ -6,20 +6,21 @@ const navItems = [
   { href: '/reparacion-de-moviles', label: 'Móviles' },
   { href: '/reparacion-de-tablets', label: 'Tablets' },
   { href: '/reparacion-de-portatiles-y-pc', label: 'Portátiles y PC' },
+  { href: '/#desarrollo-web', label: 'Desarrollo web' },
   { href: '/#contact', label: 'Contacto' },
 ];
 
 const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathname === '/' : pathname.startsWith(href));
 ---
 
-<header class="sticky top-0 z-40 border-b border-white/70 bg-white/85 backdrop-blur-xl">
+<header class="sticky top-0 z-40 border-b border-white/70 bg-white/85 backdrop-blur-xl transition-all duration-300" data-sticky-header>
   <div class="container-shell">
-    <div class="flex items-center justify-between py-4">
+    <div class="flex items-center justify-between py-4 transition-all duration-300" data-header-row>
       <a href="/" class="flex items-center gap-3">
-        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-phonetec text-lg font-extrabold text-white shadow-lg shadow-blue-600/25">P</span>
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-phonetec text-lg font-extrabold text-white shadow-lg shadow-blue-600/25" data-header-badge>P</span>
         <div>
           <div class="text-lg font-extrabold tracking-tight text-ink">PHONETEC</div>
-          <div class="text-xs font-medium uppercase tracking-[0.2em] text-gray-500">Alcalá de Henares</div>
+          <div class="text-xs font-medium uppercase tracking-[0.2em] text-gray-500" data-header-subtitle>Alcalá de Henares</div>
         </div>
       </a>
 
@@ -72,8 +73,40 @@ const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathn
 </header>
 
 <script is:inline>
+  const isHomePage = document.body?.dataset?.page === 'home';
+  const stickyHeader = document.querySelector('[data-sticky-header]');
+  const headerRow = document.querySelector('[data-header-row]');
   const menuButton = document.querySelector('[data-menu-button]');
   const mobileNav = document.querySelector('[data-mobile-nav]');
+
+  const setCompactHeader = (isCompact) => {
+    if (!stickyHeader || !headerRow) {
+      return;
+    }
+
+    stickyHeader.classList.toggle('bg-white/85', !isCompact);
+    stickyHeader.classList.toggle('bg-white/95', isCompact);
+    stickyHeader.classList.toggle('shadow-lg', isCompact);
+    stickyHeader.classList.toggle('shadow-slate-900/10', isCompact);
+
+    headerRow.classList.toggle('py-4', !isCompact);
+    headerRow.classList.toggle('py-3', isCompact);
+  };
+
+  const handleHeaderScroll = () => {
+    if (!isHomePage) {
+      setCompactHeader(false);
+      return;
+    }
+
+    const isMobileViewport = window.matchMedia('(max-width: 1023px)').matches;
+    const isCompact = isMobileViewport && window.scrollY > 20;
+    setCompactHeader(isCompact);
+  };
+
+  handleHeaderScroll();
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  window.addEventListener('resize', handleHeaderScroll);
 
   if (menuButton && mobileNav) {
     menuButton.addEventListener('click', () => {

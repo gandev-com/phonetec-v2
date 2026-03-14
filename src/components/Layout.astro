@@ -24,6 +24,7 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://phonetec.e
 const canonicalUrl = canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`;
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 const robots = noIndex ? 'noindex, nofollow' : 'index, follow';
+const pageType = Astro.url.pathname === '/' ? 'home' : 'inner';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -76,8 +77,8 @@ const localBusinessSchema = {
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
   </head>
-  <body class="min-h-screen font-[Inter] text-gray-900">
-    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+  <body data-page={pageType} class="min-h-screen overflow-x-hidden font-[Inter] text-gray-900">
+    <div class="relative flex min-h-screen flex-col">
       <Header />
       <main class="flex-1">
         <slot />
