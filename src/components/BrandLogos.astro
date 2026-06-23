@@ -14,16 +14,18 @@ import {
 type Brand = {
   name: string;
   icon?: SimpleIcon;
+  color?: string;
+  size?: number;
 };
 
 const brands: Brand[] = [
-  { name: 'Apple', icon: siApple },
+  { name: 'Apple', icon: siApple, color: 'ffffff', },
   { name: 'Google', icon: siGoogle },
   { name: 'Huawei', icon: siHuawei },
   { name: 'LG', icon: siLg },
   { name: 'Motorola', icon: siMotorola },
   { name: 'OnePlus', icon: siOneplus },
-  { name: 'Samsung', icon: siSamsung },
+  { name: 'Samsung', icon: siSamsung, size: 12  },
   { name: 'Xiaomi', icon: siXiaomi },
 ];
 ---
@@ -35,8 +37,8 @@ const brands: Brand[] = [
         {brand.icon ? (
           <svg
             viewBox="0 0 24 24"
-            class="h-8 w-8"
-            fill={`#${brand.icon.hex}`}
+            class={`h-${brand.size || 8} w-${brand.size || 8}`}
+            fill={`#${brand.color ? brand.color : brand.icon.hex}`}
             aria-hidden="true"
             set:html={`<path d="${brand.icon.path}" />`}
           ></svg>
