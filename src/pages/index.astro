@@ -22,14 +22,14 @@ const serviceIcons = {
 };
 
 const services = [
-  ['Reparación de Pantallas', 'Sustitución de pantallas rotas, táctiles y paneles OLED con acabados de alta precisión.', serviceIcons.screen],
-  ['Cambio de Batería', 'Baterías nuevas para recuperar autonomía, carga estable y un uso diario fiable.', serviceIcons.battery],
-  ['Reparación de Software', 'Solucionamos bloqueos, fallos de sistema, actualizaciones y problemas de rendimiento.', serviceIcons.software],
-  ['Reparación en Placa', 'Diagnóstico técnico y microelectrónica para fallos complejos en placa base.', serviceIcons.board],
-  ['Recuperación de Datos', 'Rescate de información en dispositivos dañados, bloqueados o con errores críticos.', serviceIcons.data],
-  ['Cambio de Conector de Carga', 'Reparación o sustitución de puertos de carga, USB-C, Lightning y conectores dañados.', serviceIcons.charging],
-  ['Eliminación de Virus y Malware', 'Limpieza profunda del sistema, eliminación de amenazas y optimización completa.', serviceIcons.virus],
-  ['Daños por agua / Móviles mojados', 'Tratamiento técnico ante corrosión y humedad para maximizar la recuperación.', serviceIcons.water],
+  ['Reparación de Pantallas', 'Sustitución de pantallas rotas, paneles OLED, LCD y digitalizadores táctiles con acabados de alta precisión y calidad.', serviceIcons.screen],
+  ['Cambio de Batería', 'Sustitución de baterías deterioradas para recuperar la autonomía, la estabilidad de carga y el rendimiento del dispositivo.', serviceIcons.battery],
+  ['Reparación de Software', 'Solución de errores del sistema, bloqueos, actualizaciones fallidas, problemas de rendimiento y configuraciones avanzadas.', serviceIcons.software],
+  ['Reparación de placa base', 'Diagnóstico electrónico avanzado, microsoldadura y reparación de averías complejas en placas base y componentes electrónicos.', serviceIcons.board],
+  ['Recuperación de Datos', 'Recuperación de información almacenada en dispositivos dañados, bloqueados o afectados por fallos de hardware o software.', serviceIcons.data],
+  ['Cambio de Conector de Carga', 'Reparación o sustitución de puertos de carga USB-C, Lightning, Micro USB y otros conectores dañados.', serviceIcons.charging],
+  ['Eliminación de Virus y Malware', 'Limpieza y desinfección del sistema, eliminación de amenazas y optimización integral del rendimiento del equipo.', serviceIcons.virus],
+  ['Reparación de daños por líquidos', 'Tratamiento especializado para dispositivos afectados por agua o humedad, minimizando la corrosión y maximizando las posibilidades de recuperación.', serviceIcons.water],
 ];
 ---
 
@@ -48,10 +48,10 @@ const services = [
     <div class="container-shell">
       <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div data-reveal="left">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Haz tus reparaciones con nosotros</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Servicio Técnico Profesional</p>
           <h2 class="section-title mt-4">Servicio técnico cercano, profesional y preparado para cualquier avería</h2>
           <p class="section-copy">
-            En PHONETEC trabajamos con móviles, tablets y ordenadores de marcas como Samsung, Xiaomi, Apple, Huawei o BQ. Apostamos por repuestos originales, procesos claros y una atención directa para que sepas qué se va a reparar y cuánto tardará.
+            En PHONETEC trabajamos con móviles, tablets y ordenadores de todas las marcas y modelos. Para garantizar los mejores resultados, utilizamos repuestos originales o equivalentes de alta calidad, seleccionados según las especificaciones de cada fabricante.
           </p>
           <div class="mt-8 flex flex-col gap-4 sm:flex-row">
             <a href="#reviews" class="btn-secondary">Ver reseñas</a>
@@ -63,7 +63,7 @@ const services = [
           <div class="glass-panel p-6 sm:col-span-2" data-reveal="right">
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">PHONETEC</p>
             <p class="mt-4 text-lg font-semibold leading-8 text-gray-800">
-              Atención local en Alcalá de Henares, explicaciones claras, garantía real y seguimiento durante todo el proceso de reparación.
+              Ofrecemos una atención directa y personalizada, realizando un diagnóstico previo y un presupuesto detallado para que conozcas con total transparencia la reparación necesaria, su coste y el plazo estimado de entrega.
             </p>
           </div>
           <div class="rounded-3xl bg-blue-50 p-6" data-reveal data-stagger="1">
@@ -82,11 +82,11 @@ const services = [
   <section class="section-space bg-mesh">
     <div class="container-shell">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">¿Qué ofrecemos?</p>
-      <h2 class="section-title mt-4">Un servicio técnico pensado para resolver rápido y bien</h2>
+      <h2 class="section-title mt-4">1-Servicio técnico rápido y fiable</h2>
       <div class="mt-10 grid gap-6 lg:grid-cols-3">
-        <FeatureCard eyebrow="Rapidez" title="Reparación rápida y eficaz" description="Optimizamos el diagnóstico y la intervención para reducir tiempos y que recuperes tu dispositivo cuanto antes." />
-        <FeatureCard eyebrow="Garantía" title="6 meses de garantía en toda reparación" description="Respaldamos cada trabajo con garantía para que tengas seguridad después de la entrega." />
-        <FeatureCard eyebrow="Repuestos" title="Usamos solo repuestos 100% originales" description="Priorizamos componentes originales y soluciones duraderas que mantengan el rendimiento del equipo." />
+        <FeatureCard title="2-RAPIDEZ" description="Optimizamos nuestros procesos de diagnóstico y reparación para reducir los tiempos de espera y devolverte tu dispositivo en las mejores condiciones y en el menor tiempo posible." />
+        <FeatureCard title="3-GARANTÍA" description="6 meses de garantía en todas las reparaciones. Respaldamos cada intervención con una garantía de 6 meses, ofreciéndote tranquilidad y confianza una vez finalizado el servicio." />
+        <FeatureCard title="4-REPUESTOS" description="Repuestos originales y equivalentes de alta calidad. Priorizamos el uso de componentes originales o equivalentes de máxima calidad para garantizar la fiabilidad, el rendimiento y la durabilidad de cada reparación." />
       </div>
     </div>
   </section>
@@ -95,7 +95,7 @@ const services = [
     <div class="container-shell">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Servicios que reparamos</p>
       <h2 class="section-title mt-4">¿Qué Reparamos?</h2>
-      <p class="section-copy">Desde pantallas y baterías hasta averías complejas en placa o recuperación de datos. Cubrimos las incidencias más frecuentes de móviles, tablets, portátiles y PC.</p>
+      <p class="section-copy">Realizamos desde sustituciones de componentes hasta reparaciones avanzadas de microelectrónica y recuperación de datos. Trabajamos con móviles, tablets, ordenadores portátiles y equipos de sobremesa.</p>
       <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {services.map(([title, description, icon]) => (
           <ServiceCard title={title} description={description} icon={icon} />

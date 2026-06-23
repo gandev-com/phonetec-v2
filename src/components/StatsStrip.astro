@@ -1,9 +1,17 @@
 ---
-const stats = [
-  { value: 6, suffix: 'm', label: 'meses de garantía' },
-  { value: 8, suffix: '+', label: 'marcas habituales reparadas' },
-  { value: 24, suffix: 'h', label: 'respuesta ágil en consultas' },
-  { value: 100, suffix: '%', label: 'foco en calidad y repuestos fiables' },
+type Stat = {
+  value?: number;
+  prefix?: string;
+  suffix?: string;
+  text?: string;
+  label: string;
+};
+
+const stats: Stat[] = [
+  { value: 6, suffix: ' meses', label: 'de garantía' },
+  { value: 8, prefix: '+', suffix: '', label: 'marcas habituales reparadas' },
+  { text: 'express', label: 'consultas y presupuestos' },
+  { value: 100, suffix: '%', label: 'Atención personalizada' },
 ];
 ---
 
@@ -13,7 +21,14 @@ const stats = [
       {stats.map((stat, index) => (
         <div class="rounded-3xl bg-gradient-to-br from-blue-50 to-white p-6" data-reveal data-stagger={String(index + 1)}>
           <div class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-            <span data-counter data-target={String(stat.value)}>0</span>{stat.suffix}
+            {stat.text ? (
+              <span>{stat.text}</span>
+            ) : (
+              <>
+                {stat.prefix && <span>{stat.prefix}</span>}
+                <span data-counter data-target={String(stat.value)}>0</span>{stat.suffix}
+              </>
+            )}
           </div>
           <p class="mt-3 text-sm font-medium uppercase tracking-[0.18em] text-gray-500">{stat.label}</p>
         </div>
