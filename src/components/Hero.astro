@@ -12,7 +12,7 @@ interface Props {
 const {
   title,
   subtitle,
-  image = '/images/device-hero.svg',
+  image = '/images/mobile.webp',
   primaryCtaLabel = 'Llamar ahora',
   primaryCtaHref = 'tel:+34636573031',
   secondaryCtaLabel = 'Pedir presupuesto por WhatsApp',
@@ -25,7 +25,7 @@ const {
   <div class="absolute left-1/2 top-16 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-blue-400/20 blur-3xl"></div>
   <div class="absolute right-0 top-24 -z-10 h-52 w-52 rounded-full bg-orange-300/20 blur-3xl"></div>
   <div class="container-shell section-space">
-    <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+    <div class="grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
       <div class="max-w-2xl" data-reveal="left">
 
         <h1 class="mt-8 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">{title}</h1>
@@ -48,7 +48,14 @@ const {
           <div class="absolute right-6 top-6 rounded-full bg-accent/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Servicio express
           </div>
-          <img src={image} alt="Ilustración de un dispositivo móvil" class="mx-auto w-full max-w-lg animate-float" loading="eager" />
+          <img
+            src={image}
+            alt="Ilustración de un dispositivo móvil"
+            class="mx-auto w-full animate-float rounded-2xl object-cover"
+            width="1600"
+            height="886"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
