@@ -39,7 +39,7 @@ const services = [
 >
   <Hero
     title="Reparación de Móviles, Tablets y Ordenadores en Alcalá de Henares"
-    subtitle="Todos nuestros repuestos son ORIGINALES y con GARANTÍA. Diagnóstico técnico, reparación rápida y soporte profesional para tus dispositivos electrónicos."
+    subtitle="En Phonetec sabemos que los dispositivos electrónicos forman parte esencial de nuestro día a día. Por ello, entendemos la importancia que tienen para ti el teléfono móvil, la tablet y el ordenador. Te ofrecemos un servicio técnico rápido, profesional y de confianza, con reparación de calidad y garantía en todos nuestros servicios. Contamos con más de 15 años de experiencia en el sector y una formación continua que nos permite mantenernos al día con las últimas tecnologías y procedimientos de reparación."
   />
 
   <StatsStrip />
@@ -59,20 +59,21 @@ const services = [
           </div>
         </div>
 
+
         <div class="grid gap-5 sm:grid-cols-2">
           <div class="glass-panel p-6 sm:col-span-2" data-reveal="right">
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">PHONETEC</p>
-            <p class="mt-4 text-lg font-semibold leading-8 text-gray-800">
+            <p class="mt-4 text-lg font-semibold leading-8 text-slate-200">
               Ofrecemos una atención directa y personalizada, realizando un diagnóstico previo y un presupuesto detallado para que conozcas con total transparencia la reparación necesaria, su coste y el plazo estimado de entrega.
             </p>
           </div>
-          <div class="rounded-3xl bg-blue-50 p-6" data-reveal data-stagger="1">
-            <p class="text-4xl font-extrabold text-phonetec">6 meses</p>
-            <p class="mt-2 text-sm text-gray-600">de garantía en todas las reparaciones</p>
+          <div class="rounded-3xl bg-phonetec/15 p-6" data-reveal data-stagger="1">
+            <p class="text-4xl font-extrabold text-cta">6 meses</p>
+            <p class="mt-2 text-sm text-slate-400">de garantía en todas las reparaciones</p>
           </div>
-          <div class="rounded-3xl bg-orange-50 p-6" data-reveal data-stagger="2">
+          <div class="rounded-3xl bg-accent/10 p-6" data-reveal data-stagger="2">
             <p class="text-4xl font-extrabold text-accent">100%</p>
-            <p class="mt-2 text-sm text-gray-600">repuestos originales o equivalentes de máxima calidad</p>
+            <p class="mt-2 text-sm text-slate-400">repuestos originales o equivalentes de máxima calidad</p>
           </div>
         </div>
       </div>
@@ -82,11 +83,11 @@ const services = [
   <section class="section-space bg-mesh">
     <div class="container-shell">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">¿Qué ofrecemos?</p>
-      <h2 class="section-title mt-4">1-Servicio técnico rápido y fiable</h2>
+      <h2 class="section-title mt-4">Servicio técnico rápido y fiable</h2>
       <div class="mt-10 grid gap-6 lg:grid-cols-3">
-        <FeatureCard title="2-RAPIDEZ" description="Optimizamos nuestros procesos de diagnóstico y reparación para reducir los tiempos de espera y devolverte tu dispositivo en las mejores condiciones y en el menor tiempo posible." />
-        <FeatureCard title="3-GARANTÍA" description="6 meses de garantía en todas las reparaciones. Respaldamos cada intervención con una garantía de 6 meses, ofreciéndote tranquilidad y confianza una vez finalizado el servicio." />
-        <FeatureCard title="4-REPUESTOS" description="Repuestos originales y equivalentes de alta calidad. Priorizamos el uso de componentes originales o equivalentes de máxima calidad para garantizar la fiabilidad, el rendimiento y la durabilidad de cada reparación." />
+        <FeatureCard title="RAPIDEZ" description="Optimizamos nuestros procesos de diagnóstico y reparación para reducir los tiempos de espera y devolverte tu dispositivo en las mejores condiciones y en el menor tiempo posible." />
+        <FeatureCard title="GARANTÍA" description="6 meses de garantía en todas las reparaciones. Respaldamos cada intervención con una garantía de 6 meses, ofreciéndote tranquilidad y confianza una vez finalizado el servicio." />
+        <FeatureCard title="REPUESTOS" description="Repuestos originales y equivalentes de alta calidad. Priorizamos el uso de componentes originales o equivalentes de máxima calidad para garantizar la fiabilidad, el rendimiento y la durabilidad de cada reparación." />
       </div>
     </div>
   </section>
@@ -106,7 +107,7 @@ const services = [
 
   <ServiceAdvisor />
 
-  <section id="reviews" class="section-space bg-gray-50">
+  <section id="reviews" class="section-space bg-white/[0.03]">
     <div class="container-shell">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Clientes satisfechos</p>
       <h2 class="section-title mt-4">¿Qué opinan nuestros clientes?</h2>
@@ -121,7 +122,7 @@ const services = [
     <div class="container-shell">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-phonetec">Marcas que reparamos</p>
       <h2 class="section-title mt-4">Trabajamos con las marcas más habituales del mercado</h2>
-      <p class="section-copy">Samsung, Apple, Xiaomi, Huawei, BQ y otras marcas con piezas compatibles, experiencia de reparación y procesos seguros.</p>
+      <p class="section-copy">Samsung, Apple, Xiaomi, Huawei, Google, Motorola y otras marcas con piezas compatibles, experiencia de reparación y procesos seguros.</p>
       <div class="mt-10">
         <BrandLogos />
       </div>
@@ -153,7 +154,7 @@ const services = [
                 <h3 class="text-xl font-bold">Solicita una propuesta digital</h3>
                 <p class="mt-2 text-sm leading-7 text-slate-300">Accede a gandev.es o usa el formulario para indicar que necesitas desarrollo web.</p>
               </div>
-              <a href="https://gandev.es" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-phonetec transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50">Ir a Gandev.es</a>
+              <a href="https://gandev.es" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-phonetec transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110">Ir a Gandev.es</a>
             </div>
           </div>
         </div>

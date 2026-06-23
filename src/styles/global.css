@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -11,10 +11,12 @@ html {
 }
 
 body {
-  @apply bg-white font-sans text-gray-900 antialiased;
+  @apply font-sans antialiased;
+  background-color: #070708;
+  color: #e8eaf0;
   background-image:
-    radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 28%),
-    linear-gradient(180deg, rgba(248, 250, 252, 0.75) 0%, rgba(255, 255, 255, 1) 45%);
+    radial-gradient(circle at top right, rgba(14, 64, 216, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(7, 7, 8, 1) 0%, rgba(7, 7, 8, 0.96) 100%);
 }
 
 .container-shell {
@@ -26,37 +28,37 @@ body {
 }
 
 .section-title {
-  @apply text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl;
+  @apply text-3xl font-extrabold tracking-tight text-white sm:text-4xl;
 }
 
 .section-copy {
-  @apply mt-4 max-w-3xl text-base leading-8 text-gray-600 sm:text-lg;
+  @apply mt-4 max-w-3xl text-base leading-8 text-slate-400 sm:text-lg;
 }
 
 .glass-panel {
-  @apply rounded-3xl border border-white/60 bg-white/80 shadow-glow backdrop-blur;
+  @apply rounded-3xl border border-white/10 bg-white/5 shadow-glow backdrop-blur;
 }
 
 .aurora-panel {
   background-image:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 34%),
+    radial-gradient(circle at top left, rgba(14, 64, 216, 0.20), transparent 34%),
     radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.14), transparent 28%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.88));
+    linear-gradient(135deg, rgba(7, 7, 8, 0.92), rgba(14, 64, 216, 0.08));
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-phonetec px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-phonetec focus:ring-offset-2;
+  @apply inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-phonetec transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-phonetec hover:text-phonetec focus:outline-none focus:ring-2 focus:ring-phonetec focus:ring-offset-2;
+  @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:-translate-y-0.5 hover:border-cta hover:text-cta focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2 focus:ring-offset-[#070708];
 }
 
 .bg-mesh {
   background-image:
-    linear-gradient(120deg, rgba(37, 99, 235, 0.05), rgba(249, 115, 22, 0.07)),
-    radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.14), transparent 32%),
-    radial-gradient(circle at 80% 0%, rgba(249, 115, 22, 0.14), transparent 24%);
+    linear-gradient(120deg, rgba(14, 64, 216, 0.08), rgba(249, 115, 22, 0.07)),
+    radial-gradient(circle at 20% 20%, rgba(14, 64, 216, 0.16), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(249, 115, 22, 0.12), transparent 24%);
 }
 
 .review-mask {
@@ -64,7 +66,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8 48%, #f97316 100%);
+  background: linear-gradient(135deg, #dee9fc, #0e40d8 48%, #f97316 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

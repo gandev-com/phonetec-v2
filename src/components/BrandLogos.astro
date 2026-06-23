@@ -30,7 +30,7 @@ const brands: Brand[] = [
 
 <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
   {brands.map((brand) => (
-    <div class="rounded-2xl border border-gray-200 bg-white px-4 py-5 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1">
+    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center transition-transform duration-300 hover:-translate-y-1 hover:border-phonetec/40">
       <div class="flex min-h-12 items-center justify-center">
         {brand.icon ? (
           <svg
@@ -41,10 +41,10 @@ const brands: Brand[] = [
             set:html={`<path d="${brand.icon.path}" />`}
           ></svg>
         ) : (
-          <span class="text-base font-extrabold tracking-wide text-gray-700">{brand.name}</span>
+          <span class="text-base font-extrabold tracking-wide text-slate-300">{brand.name}</span>
         )}
       </div>
-      <p class="mt-3 text-sm font-semibold text-gray-700">{brand.name}</p>
+      <p class="mt-3 text-sm font-semibold text-slate-400">{brand.name}</p>
     </div>
   ))}
 </div>

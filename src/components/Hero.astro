@@ -27,27 +27,25 @@ const {
   <div class="container-shell section-space">
     <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="max-w-2xl" data-reveal="left">
-        <p class="text-base leading-8 text-gray-600">
-          En Phonetec sabemos que los dispositivos electrónicos forman parte esencial de nuestro día a día. Por ello, entendemos la importancia que tienen para ti el teléfono móvil, la tablet y el ordenador. Te ofrecemos un servicio técnico rápido, profesional y de confianza, con reparación de calidad y garantía en todos nuestros servicios. Contamos con más de 15 años de experiencia en el sector y una formación continua que nos permite mantenernos al día con las últimas tecnologías y procedimientos de reparación.
-        </p>
-        <h1 class="mt-8 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">{title}</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">{subtitle}</p>
+
+        <h1 class="mt-8 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">{title}</h1>
+        <p class="mt-6 text-lg leading-8 text-slate-300 sm:text-xl">{subtitle}</p>
 
         <div class="mt-8 flex flex-col gap-4 sm:flex-row">
           <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel}</a>
           <a href={secondaryCtaHref} target="_blank" rel="noopener noreferrer" class="btn-secondary">{secondaryCtaLabel}</a>
         </div>
 
-        <div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-gray-600">
-          <div class="rounded-full bg-white px-4 py-2 shadow-sm">6 meses de garantía</div>
-          <div class="rounded-full bg-white px-4 py-2 shadow-sm">Repuestos originales</div>
-          <div class="rounded-full bg-white px-4 py-2 shadow-sm">Samsung, Apple, Xiaomi y más</div>
+        <div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-slate-300">
+          <div class="rounded-full border border-white/10 bg-white/5 px-4 py-2">6 meses de garantía</div>
+          <div class="rounded-full border border-white/10 bg-white/5 px-4 py-2">Repuestos originales</div>
+          <div class="rounded-full border border-white/10 bg-white/5 px-4 py-2">Samsung, Apple, Xiaomi y más</div>
         </div>
       </div>
 
       <div class="relative" data-reveal="right" data-stagger="1">
         <div class="glass-panel aurora-panel relative overflow-hidden p-4 sm:p-6">
-          <div class="absolute right-6 top-6 rounded-full bg-orange-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+          <div class="absolute right-6 top-6 rounded-full bg-accent/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Servicio express
           </div>
           <img src={image} alt="Ilustración de un dispositivo móvil" class="mx-auto w-full max-w-lg animate-float" loading="eager" />

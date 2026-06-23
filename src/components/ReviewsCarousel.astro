@@ -19,10 +19,10 @@ const reviews = [
   <div class="review-mask overflow-hidden">
     <div class="flex snap-x gap-6 overflow-x-auto pb-4" data-reviews-track>
       {reviews.map((review) => (
-        <article class="min-w-[86%] snap-center rounded-3xl border border-gray-100 bg-white p-8 shadow-md shadow-slate-200/60 sm:min-w-[420px]">
+        <article class="min-w-[86%] snap-center rounded-3xl border border-white/10 bg-white/5 p-8 shadow-md shadow-black/30 sm:min-w-[420px]">
           <div class="text-lg text-amber-400">★★★★★</div>
-          <p class="mt-4 text-base leading-8 text-gray-600">“{review.text}”</p>
-          <p class="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-gray-900">{review.author}</p>
+          <p class="mt-4 text-base leading-8 text-slate-300">"{review.text}"</p>
+          <p class="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-white">{review.author}</p>
         </article>
       ))}
     </div>

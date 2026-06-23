@@ -6,15 +6,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        phonetec: '#2563EB',
+        phonetec: '#0e40d8',
         accent: '#F97316',
         ink: '#0F172A',
+        cta: '#dee9fc',
       },
       boxShadow: {
-        glow: '0 24px 60px -24px rgba(37, 99, 235, 0.35)',
+        glow: '0 24px 60px -24px rgba(14, 64, 216, 0.35)',
       },
       backgroundImage: {
-        'hero-grid': 'radial-gradient(circle at top, rgba(37, 99, 235, 0.18), transparent 40%), linear-gradient(135deg, rgba(15, 23, 42, 0.03), rgba(37, 99, 235, 0.08))',
+        'hero-grid': 'radial-gradient(circle at top, rgba(14, 64, 216, 0.22), transparent 40%), linear-gradient(135deg, rgba(7, 7, 8, 0.8), rgba(14, 64, 216, 0.10))',
       },
       keyframes: {
         float: {

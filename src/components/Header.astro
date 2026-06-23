@@ -13,14 +13,14 @@ const navItems = [
 const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathname === '/' : pathname.startsWith(href));
 ---
 
-<header class="sticky top-0 z-40 border-b border-white/70 bg-white/85 backdrop-blur-xl transition-all duration-300" data-sticky-header>
+<header class="sticky top-0 z-40 border-b border-white/10 bg-[#070708]/90 backdrop-blur-xl transition-all duration-300" data-sticky-header>
   <div class="container-shell">
     <div class="flex items-center justify-between py-4 transition-all duration-300" data-header-row>
       <a href="/" class="flex items-center gap-3">
-        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-phonetec text-lg font-extrabold text-white shadow-lg shadow-blue-600/25" data-header-badge>P</span>
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-phonetec text-lg font-extrabold text-white shadow-lg shadow-phonetec/30" data-header-badge>P</span>
         <div>
-          <div class="text-lg font-extrabold tracking-tight text-ink">PHONETEC</div>
-          <div class="text-xs font-medium uppercase tracking-[0.2em] text-gray-500" data-header-subtitle>Alcalá de Henares</div>
+          <div class="text-lg font-extrabold tracking-tight text-white">PHONETEC</div>
+          <div class="text-xs font-medium uppercase tracking-[0.2em] text-slate-400" data-header-subtitle>Alcalá de Henares</div>
         </div>
       </a>
 
@@ -30,7 +30,7 @@ const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathn
             href={item.href}
             class:list={[
               'rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200',
-              isActive(item.href) ? 'bg-blue-50 text-phonetec' : 'text-gray-600 hover:text-phonetec',
+              isActive(item.href) ? 'bg-phonetec/20 text-white' : 'text-slate-100 hover:text-white hover:bg-white/8',
             ]}
           >
             {item.label}
@@ -41,7 +41,7 @@ const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathn
 
       <button
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200 text-gray-700 lg:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 text-slate-300 lg:hidden"
         data-menu-button
         aria-expanded="false"
         aria-controls="mobile-nav"
@@ -53,14 +53,14 @@ const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathn
       </button>
     </div>
 
-    <div id="mobile-nav" class="hidden border-t border-gray-100 py-4 lg:hidden" data-mobile-nav>
+    <div id="mobile-nav" class="hidden border-t border-white/10 py-4 lg:hidden" data-mobile-nav>
       <nav class="flex flex-col gap-2">
         {navItems.map((item) => (
           <a
             href={item.href}
             class:list={[
               'rounded-2xl px-4 py-3 text-sm font-semibold transition-colors duration-200',
-              isActive(item.href) ? 'bg-blue-50 text-phonetec' : 'text-gray-600 hover:bg-gray-50 hover:text-phonetec',
+              isActive(item.href) ? 'bg-phonetec/20 text-white' : 'text-slate-100 hover:bg-white/8 hover:text-white',
             ]}
           >
             {item.label}
@@ -84,10 +84,10 @@ const isActive = (href: string) => href !== '/#contact' && (href === '/' ? pathn
       return;
     }
 
-    stickyHeader.classList.toggle('bg-white/85', !isCompact);
-    stickyHeader.classList.toggle('bg-white/95', isCompact);
-    stickyHeader.classList.toggle('shadow-lg', isCompact);
-    stickyHeader.classList.toggle('shadow-slate-900/10', isCompact);
+    // stickyHeader.classList.toggle('bg-white/85', !isCompact);
+    // stickyHeader.classList.toggle('bg-white/95', isCompact);
+    // stickyHeader.classList.toggle('shadow-lg', isCompact);
+    // stickyHeader.classList.toggle('shadow-slate-900/10', isCompact);
 
     headerRow.classList.toggle('py-4', !isCompact);
     headerRow.classList.toggle('py-3', isCompact);
