@@ -80,7 +80,7 @@ export const POST: APIRoute = async ({ request }) => {
         const smtpPort = Number(import.meta.env.SMTP_PORT || 587);
         const smtpUser = import.meta.env.SMTP_USER;
         const smtpPass = import.meta.env.SMTP_PASS;
-        const contactEmail = import.meta.env.CONTACT_EMAIL || 'phontecnico@gmail.com';
+        const contactEmail = import.meta.env.CONTACT_EMAIL || 'phonetec.alcala@gmail.com';
 
         if (!smtpHost || !smtpUser || !smtpPass) {
             return new Response(JSON.stringify({ success: false, message: 'Falta configurar el servidor SMTP en las variables de entorno.' }), {

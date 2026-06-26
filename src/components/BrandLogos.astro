@@ -25,7 +25,7 @@ const brands: Brand[] = [
   { name: 'LG', icon: siLg },
   { name: 'Motorola', icon: siMotorola },
   { name: 'OnePlus', icon: siOneplus },
-  { name: 'Samsung', icon: siSamsung, size: 12  },
+  { name: 'Samsung', icon: siSamsung, size: 14  },
   { name: 'Xiaomi', icon: siXiaomi },
 ];
 ---
@@ -37,7 +37,7 @@ const brands: Brand[] = [
         {brand.icon ? (
           <svg
             viewBox="0 0 24 24"
-            class={`h-${brand.size || 8} w-${brand.size || 8}`}
+            class={`h-${brand.size ? brand.size : 14} w-${brand.size ? brand.size : 14} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
             fill={`#${brand.color ? brand.color : brand.icon.hex}`}
             aria-hidden="true"
             set:html={`<path d="${brand.icon.path}" />`}
